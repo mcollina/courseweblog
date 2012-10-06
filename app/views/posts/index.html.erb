@@ -1,14 +1,4 @@
 <%- model_class = Post.new.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 
-<% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <p>
-    <small>Published at <%=l post.created_at, format: :long %> in <%= post.category.title %></small>
-  </p>
-  <%= truncate(post.description, length: 500) %>
-  <p>
-    <small><%= link_to "more", post_path(post) %></small>
-  </p>
-  <hr>
-<% end %>
+<%= render partial: "shared/post_in_list", collection: @posts, as: :post %>

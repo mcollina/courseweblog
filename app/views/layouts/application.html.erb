@@ -49,7 +49,7 @@
                     <li class="nav-header">Categories</li>
                   <% end %>
                   <% @categories.each do |category| %>
-                    <li><%= link_to category.title, "/path1"  %></li>
+                    <li><%= link_to category.title, category_path(category) %></li>
                   <% end %>
                 </ul>
               </div><!--/.well -->

@@ -1,0 +1,10 @@
+
+<h2><%= link_to post.title, post_path(post) %></h2>
+<p>
+  <small>Published at <%=l post.created_at, format: :long %> in <%= link_to post.category.title, post.category %></small>
+</p>
+<%= truncate(post.description, length: 500) %>
+<p>
+  <small><%= link_to "more", post_path(post) %></small>
+</p>
+<hr>
