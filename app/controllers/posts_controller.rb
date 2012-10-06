@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_filter :fetch_categories
+
   # GET /posts
   # GET /posts.json
   def index
@@ -19,5 +22,9 @@ class PostsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @post }
     end
+  end
+
+  def fetch_categories
+    @categories = Category.all
   end
 end
