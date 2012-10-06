@@ -1,20 +1,11 @@
 <%- model_class = Post.new.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, post_path(post) %></td>
-        <td><%= post.description %></td>
-        <td><%=l post.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<% @posts.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <p>
+    <small>Published at <%=l post.created_at, format: :long %></small>
+  </p>
+  <%= post.description %>
+  <hr>
+<% end %>
