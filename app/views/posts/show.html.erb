@@ -1,6 +1,6 @@
 <h1><%= link_to @post.title, post_path(@post) %></h1>
 <p>
-  <small>Published at <%=l @post.created_at, format: :long %></small>
+  <small>Published at <%=l @post.created_at, format: :long %> in <%= @post.category.title %></small>
 </p>
 <%= @post.description %>
 
