@@ -6,6 +6,9 @@
   <p>
     <small>Published at <%=l post.created_at, format: :long %></small>
   </p>
-  <%= post.description %>
+  <%= truncate(post.description, length: 500) %>
+  <p>
+    <small><%= link_to "more", post_path(post) %></small>
+  </p>
   <hr>
 <% end %>
